@@ -17,13 +17,14 @@ class TestSabyMain:
         page.click(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_HREF)
         page.click(SabyContact.LOGO_TENSOR)
+        page.wait_open_window()
         page.switch_on_last_window()
-        page.scroll_on_600_pixels()
+        page.scroll_on_700_pixels()
         text_power_people = page.get_text(TensorMain.TEXT_POWER_PEOPEL)
         assert text_power_people[:12] == "Сила в людях"
         page.click(TensorMain.HREF_MORE)
         assert page.get_current_url() == 'https://tensor.ru/about'
-        page.scroll_on_600_pixels()
+        page.scroll_on_700_pixels()
         page.scroll_on_element(TensorAbout.TEXT_WORKING)
         photos = page.find_elements(TensorAbout.PHOTO_WORKING)
         assert all(photos[0].size == photo.size for photo in photos)

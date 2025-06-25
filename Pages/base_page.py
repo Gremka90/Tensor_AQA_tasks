@@ -82,13 +82,16 @@ class BasePage:
             self.logger.debug(f'Элемент с локатором {locator} не найден ')
             return e
 
+    def wait_open_window(self, timeout = 10):
+        WebDriverWait(self.driver, timeout).until(EC.number_of_windows_to_be(2))
+
     def switch_on_last_window(self) -> None:
         self.logger.info('Переключение на последнюю открытую вкладку')
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
-    def scroll_on_600_pixels(self) -> None:
-        self.logger.info('Скроллим вниз на 600 пикселей')
-        ActionChains(self.driver).scroll_by_amount(0, 600)
+    def scroll_on_700_pixels(self) -> None:
+        self.logger.info('Скроллим вниз на 700 пикселей')
+        ActionChains(self.driver).scroll_by_amount(0, 700)
 
     def scroll_on_element(self, locator, timeout = 10) -> None:
         self.logger.info(f'Переход к элементу {locator}')
