@@ -50,6 +50,7 @@ class TestSabyMain:
     def test_scenario_tree(self, driver):
         page = SabyMainPage(driver)
         page.open("https://saby.ru/")
+        page.find_element(SabyMain.DOWNLOAD_HREF)
         page.click(SabyMain.DOWNLOAD_HREF)
         href_download = page.find_element(SabyDownload.DOWNLOAD_HREF).get_attribute('href')
         filename = href_download.rsplit('/', 1)[-1]
