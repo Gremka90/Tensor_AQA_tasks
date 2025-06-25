@@ -59,6 +59,11 @@ class BasePage:
             self.logger.debug(f'Элемент с локатором {locator} не найден ')
             return e
 
+    def wait_visible(self, locator, timeout = 10):
+        WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
+
     def click(self, locator, timeout = 10) -> None:
         self.logger.info(f'Нажатие на элемент с локатором {locator}')
         element = self.find_element(locator, timeout)

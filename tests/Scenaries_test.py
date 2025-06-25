@@ -13,7 +13,7 @@ class TestSabyMain:
     def test_scenario_one(self, driver):
         page = SabyMainPage(driver)
         page.open(self.BASE_URL)
-        page.find_element(SabyMain.CONTACT_BUTTOM)
+        page.wait_visible(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_HREF)
         page.click(SabyContact.LOGO_TENSOR)
@@ -31,7 +31,7 @@ class TestSabyMain:
     def test_scenario_two(self, driver):
         page = SabyMainPage(driver)
         page.open(self.BASE_URL)
-        page.find_element(SabyMain.CONTACT_BUTTOM)
+        page.wait_visible(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_HREF)
         home_region = page.get_text(SabyContact.CURRENT_REGION)
@@ -40,7 +40,7 @@ class TestSabyMain:
         assert partners, 'Партнеры не отображаются'
         page.click(SabyContact.CHOOSER_REGION)
         page.click(SabyContact.KAMCHATSKY_REGION)
-        page.find_element(SabyContact.KAMCHATSKY_REGION)
+        page.wait_visible(SabyContact.KAMCHATSKY_REGION)
         current_region = page.get_text(SabyContact.CURRENT_REGION)
         assert current_region == 'Камчатский край'
         current_partners = page.find_elements(SabyContact.PARTNERS)
@@ -51,7 +51,8 @@ class TestSabyMain:
     def test_scenario_tree(self, driver):
         page = SabyMainPage(driver)
         page.open("https://saby.ru/")
-        page.find_element(SabyMain.DOWNLOAD_HREF)
+        page.scroll_on_element(SabyMain.DOWNLOAD_HREF)
+        page.wait_visible(SabyMain.DOWNLOAD_HREF)
         page.click(SabyMain.DOWNLOAD_HREF)
         href_download = page.find_element(SabyDownload.DOWNLOAD_HREF).get_attribute('href')
         filename = href_download.rsplit('/', 1)[-1]
