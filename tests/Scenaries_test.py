@@ -18,6 +18,7 @@ class TestSabyMain:
         page.click(SabyMain.CONTACT_HREF)
         page.click(SabyContact.LOGO_TENSOR)
         page.switch_on_last_window()
+        page.scroll_on_600_pixels()
         text_power_people = page.get_text(TensorMain.TEXT_POWER_PEOPEL)
         assert text_power_people[:12] == "Сила в людях"
         page.click(TensorMain.HREF_MORE)
