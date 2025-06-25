@@ -6,7 +6,6 @@ import os
 import pytest
 
 
-
 def pytest_configure(config):
     if not os.path.exists('../Tensor_AQA_tasks/logs'):
         os.makedirs('../Tensor_AQA_tasks/logs')

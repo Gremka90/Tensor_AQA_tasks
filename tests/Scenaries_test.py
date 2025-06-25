@@ -13,6 +13,7 @@ class TestSabyMain:
     def test_scenario_one(self, driver):
         page = SabyMainPage(driver)
         page.open(self.BASE_URL)
+        page.find_element(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_HREF)
         page.click(SabyContact.LOGO_TENSOR)
@@ -29,6 +30,7 @@ class TestSabyMain:
     def test_scenario_two(self, driver):
         page = SabyMainPage(driver)
         page.open(self.BASE_URL)
+        page.find_element(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_BUTTOM)
         page.click(SabyMain.CONTACT_HREF)
         home_region = page.get_text(SabyContact.CURRENT_REGION)
