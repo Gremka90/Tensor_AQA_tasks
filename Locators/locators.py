@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class SabyMainPageLocators:
     CONTACT_BUTTOM = (By.CSS_SELECTOR, "div.sbisru-Header__menu-link.sbis_ru-Header__menu-link.sbisru-Header__menu-link--hover")#Кнопка контакты в шапке сайта
-    CONTACT_HREF = (By.XPATH, '//span[contains(text(), "офисов в регионе")]')#Ссылка офисов в регионе
+    CONTACT_HREF = (By.XPATH, '//span[contains(text(), "в регионе")]')#Ссылка офисов в регионе
     DOWNLOAD_HREF = (By.XPATH, '//a[@href="/download"]')#Ссылка к разделу скачки
 
 
